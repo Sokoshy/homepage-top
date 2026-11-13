@@ -1,6 +1,308 @@
-/* Temporary dummy styles - replaced in the CSS blocks */
+/* ===== Base & tokens ===== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+p,
+figure,
+ul,
+address {
+  margin: 0;
+}
+
+:root {
+  --teal: #0e8a9e;
+  --ink: #191919;
+  --cream: #f7f4ee;
+  --white: #ffffff;
+  --shadow: 0 10px 30px rgb(0 0 0 / 0.18);
+}
+
 body {
-  background: #f7f4ee;
-  text-align: center;
   font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--cream);
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.container {
+  width: min(1100px, 100% - 2.5rem);
+  margin-inline: auto;
+}
+
+.card {
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.icon-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.icon-list a {
+  display: inline-flex;
+  line-height: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+:focus-visible {
+  outline: 3px solid var(--teal);
+  outline-offset: 2px;
+}
+
+/* ===== Hero ===== */
+
+.hero {
+  position: relative;
+  padding: 4rem 0 9rem;
+}
+
+/* The diagonal teal band lives on a pseudo-element so clip-path only clips the band,
+   not the photo/card which overflow below it onto the cream background */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+  background: var(--teal);
+  clip-path: polygon(0 0, 100% 0, 100% 55%, 0 100%);
+}
+
+.hero__grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+}
+
+.hero__photo {
+  grid-area: 1 / 1;
+  justify-self: start;
+  width: min(430px, 46%);
+  z-index: 1;
+  position: relative;
+  box-shadow: var(--shadow);
+  line-height: 0;
+}
+
+.hero__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero__name {
+  position: absolute;
+  left: 0.75rem;
+  bottom: 0.5rem;
+  line-height: 1.1;
+  max-width: 90%;
+  color: var(--white);
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(2rem, 4.2vw, 3.1rem);
+  text-shadow: 0 2px 10px rgb(0 0 0 / 0.45);
+}
+
+.about-card {
+  grid-area: 1 / 1;
+  justify-self: end;
+  align-self: end;
+  z-index: 2;
+  max-width: min(680px, 62%);
+  padding: 2rem 2.25rem 1.5rem;
+  margin-top: 2rem;
+}
+
+.about-card h2 {
+  font-size: clamp(1.9rem, 3vw, 2.4rem);
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.about-card p {
+  font-weight: 300;
+  margin-bottom: 1.25rem;
+}
+
+.about-card__icons {
+  justify-content: flex-end;
+}
+
+/* ===== My work ===== */
+
+.work {
+  padding: 3.5rem 0 6rem;
+}
+
+.work__title {
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+.work__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.25rem;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card__shot {
+  aspect-ratio: 16 / 11;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  text-align: center;
+  color: var(--white);
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  line-height: 1.35;
+}
+
+.project-card__shot--red { background: #a33c3c; }
+.project-card__shot--purple { background: #8a76c4; }
+.project-card__shot--green { background: #4e9047; }
+.project-card__shot--pink { background: #b1589f; }
+.project-card__shot--orange { background: #cd8a2b; }
+.project-card__shot--blue { background: #3f90bd; }
+
+.project-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex: 1;
+  padding: 0.9rem 1.2rem 1.2rem;
+}
+
+.project-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.project-card__head h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.project-card__links {
+  gap: 0.6rem;
+}
+
+.project-card__links a {
+  opacity: 0.85;
+}
+
+.project-card__links a:hover,
+.project-card__links a:focus-visible {
+  opacity: 1;
+}
+
+.project-card__body p {
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: #4a4a4a;
+}
+
+/* ===== Contact footer ===== */
+
+.contact {
+  background: var(--teal);
+  color: var(--white);
+}
+
+.contact__grid {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  padding: 3.5rem 0;
+}
+
+.contact__info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.contact__info h2 {
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-weight: 500;
+}
+
+.contact__info > p {
+  font-weight: 300;
+}
+
+.contact__info address {
+  font-style: normal;
+  font-weight: 300;
+}
+
+.contact__lines {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.contact__lines a {
+  color: var(--white);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.contact__lines img {
+  filter: invert(100%);
+}
+
+.contact__icons {
+  gap: 1.25rem;
+}
+
+.contact__photo {
+  flex: 1;
+  max-width: 470px;
+  width: 100%;
+  height: clamp(320px, 42vw, 500px);
+  object-fit: cover;
+  object-position: center 18%;
+  box-shadow: var(--shadow);
 }
