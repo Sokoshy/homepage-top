@@ -109,6 +109,7 @@ img {
   position: relative;
   box-shadow: var(--shadow);
   line-height: 0;
+  aspect-ratio: 4 / 5;
 }
 
 .hero__photo img {
@@ -118,9 +119,11 @@ img {
 }
 
 .hero__name {
-  position: absolute;
-  left: 0.75rem;
-  bottom: 0.5rem;
+  grid-area: 1 / 1;
+  align-self: end;
+  justify-self: start;
+  z-index: 2;
+  margin: 0 0 -0.35em 0.75rem;
   line-height: 1.1;
   max-width: 90%;
   color: var(--white);
@@ -303,6 +306,168 @@ img {
   width: 100%;
   height: clamp(320px, 42vw, 500px);
   object-fit: cover;
-  object-position: center 18%;
+  object-position: center 18%; /* favor the face in the crop */
   box-shadow: var(--shadow);
+}
+
+/* ===== Tablet (<= 1000px) ===== */
+
+@media (max-width: 1000px) {
+  .hero {
+    padding: 3rem 0 8rem;
+  }
+
+  .hero::before {
+    /* keep the diagonal, just steeper for a shorter hero */
+    clip-path: polygon(0 0, 100% 0, 100% 58%, 0 100%);
+  }
+
+  .hero__grid {
+    grid-template-columns: minmax(0, 430px) 1fr;
+    column-gap: 2rem;
+    align-items: start;
+  }
+
+  .hero__photo {
+    grid-area: auto;
+    grid-column: 1;
+    grid-row: 1;
+    width: 100%;
+    aspect-ratio: 2 / 3;
+  }
+
+  .hero__name {
+    grid-area: auto;
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    align-self: start;
+    margin: 0.5rem 0 0;
+    text-shadow: none;
+    font-size: clamp(2.3rem, 6vw, 3.3rem);
+  }
+
+  .about-card {
+    grid-area: auto;
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-self: center;
+    align-self: auto;
+    max-width: none;
+    width: min(600px, 94%);
+    margin: -5rem 0 0; /* upward overlap while staying in flow */
+    z-index: 2;
+  }
+
+  .work__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem;
+  }
+
+  .contact__grid {
+    gap: 2rem;
+  }
+
+  .contact__photo {
+    max-width: 380px;
+    height: clamp(280px, 38vw, 420px);
+  }
+}
+
+/* ===== Mobile (<= 500px) ===== */
+
+@media (max-width: 500px) {
+  .hero {
+    --photo-h: clamp(280px, 66vw, 340px); /* shared between the photo and the teal band */
+    padding: 0 0 2.5rem;
+  }
+
+  .hero::before {
+    top: 0;
+    bottom: auto;
+    height: calc(var(--photo-h) + 1.5rem);
+    clip-path: polygon(0 0, 100% 0, 100% 64%, 0 100%);
+  }
+
+  .hero__grid {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+  }
+
+  .hero__photo {
+    grid-column: 1;
+    grid-row: 1;
+    width: min(78%, 320px);
+    margin: 1.5rem auto 0;
+    box-shadow: none;
+    height: var(--photo-h); /* band and photo share this, keep them in sync */
+  }
+
+  .hero__photo img {
+    object-position: center 15%;
+    height: 100%;
+  }
+
+  /* Name back onto the photo, bottom-left, white; anchored to the photo's left edge */
+  .hero__name {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+    align-self: end;
+    margin: 0 0 -0.3em calc((100% - min(78%, 320px)) / 2 + 0.75rem);
+    font-size: clamp(2rem, 9vw, 2.75rem);
+    text-shadow: 0 2px 12px rgb(0 0 0 / 0.55);
+  }
+
+  /* About block */
+  .about-card {
+    grid-column: 1;
+    grid-row: 2;
+    width: 100%;
+    max-width: none;
+    margin: 1.75rem 0 0;
+    justify-self: stretch;
+    align-self: auto;
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .about-card__icons {
+    justify-content: flex-start;
+  }
+
+  .work {
+    padding: 2.5rem 0 4rem;
+  }
+
+  .work__title {
+    font-size: 1.7rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .work__grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .project-card__shot {
+    aspect-ratio: 16 / 10;
+    font-size: 1.25rem;
+  }
+
+  /* Footer stacks */
+  .contact__grid {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.75rem;
+    padding: 2.5rem 0;
+  }
+
+  .contact__photo {
+    max-width: none;
+    width: 100%;
+    height: clamp(220px, 58vw, 320px);
+    object-position: center 15%;
+  }
 }
