@@ -10,7 +10,158 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <h1>Homepage scaffold</h1>
-  <p>Si ce texte est centré et la page a un fond crème, le CSS est bien lié.</p>
+  <main>
+    <!-- HERO: portrait + about card on the teal diagonal band -->
+    <header class="hero">
+      <div class="container hero__grid">
+        <figure class="hero__photo">
+          <img src="assets/portrait.jpg" alt="Portrait of Sokoslay">
+          <figcaption class="hero__name">Sokoslay</figcaption>
+        </figure>
+        <div class="card about-card">
+          <h2>About me</h2>
+          <p>
+            I am a junior developer focused on building interactive web experiences.
+            I like projects that mix clean structure and strong visuals, and I enjoy
+            learning by building real things end to end.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+          <ul class="icon-list about-card__icons">
+            <li><a href="https://github.com/" aria-label="GitHub profile"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="" width="30" height="30"></a></li>
+            <li><a href="https://www.linkedin.com/" aria-label="LinkedIn profile"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-plain.svg" alt="" width="30" height="30"></a></li>
+            <li><a href="https://x.com/" aria-label="X profile"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/twitter/twitter-original.svg" alt="" width="30" height="30"></a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <!-- MY WORK: responsive grid of project cards -->
+    <section class="work container" id="work">
+      <h2 class="work__title">My work</h2>
+      <div class="work__grid">
+
+        <article class="card project-card">
+          <div class="project-card__shot project-card__shot--red">screenshot of project</div>
+          <div class="project-card__body">
+            <div class="project-card__head">
+              <h3>Project name</h3>
+              <div class="icon-list project-card__links">
+                <a href="https://github.com/" aria-label="GitHub repository"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="" width="22" height="22"></a>
+                <a href="#" aria-label="Live preview"><img src="assets/icons/open-in-new.svg" alt="" width="22" height="22"></a>
+              </div>
+            </div>
+            <p>Short description of the project. Just a couple sentences will do.</p>
+          </div>
+        </article>
+
+        <article class="card project-card">
+          <div class="project-card__shot project-card__shot--purple">screenshot of project</div>
+          <div class="project-card__body">
+            <div class="project-card__head">
+              <h3>Project name</h3>
+              <div class="icon-list project-card__links">
+                <a href="https://github.com/" aria-label="GitHub repository"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="" width="22" height="22"></a>
+                <a href="#" aria-label="Live preview"><img src="assets/icons/open-in-new.svg" alt="" width="22" height="22"></a>
+              </div>
+            </div>
+            <p>Short description of the project. Just a couple sentences will do.</p>
+          </div>
+        </article>
+
+        <article class="card project-card">
+          <div class="project-card__shot project-card__shot--green">screenshot of project</div>
+          <div class="project-card__body">
+            <div class="project-card__head">
+              <h3>Project name</h3>
+              <div class="icon-list project-card__links">
+                <a href="https://github.com/" aria-label="GitHub repository"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="" width="22" height="22"></a>
+                <a href="#" aria-label="Live preview"><img src="assets/icons/open-in-new.svg" alt="" width="22" height="22"></a>
+              </div>
+            </div>
+            <p>Short description of the project. Just a couple sentences will do.</p>
+          </div>
+        </article>
+
+        <article class="card project-card">
+          <div class="project-card__shot project-card__shot--pink">screenshot of project</div>
+          <div class="project-card__body">
+            <div class="project-card__head">
+              <h3>Project name</h3>
+              <div class="icon-list project-card__links">
+                <a href="https://github.com/" aria-label="GitHub repository"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="" width="22" height="22"></a>
+                <a href="#" aria-label="Live preview"><img src="assets/icons/open-in-new.svg" alt="" width="22" height="22"></a>
+              </div>
+            </div>
+            <p>Short description of the project. Just a couple sentences will do.</p>
+          </div>
+        </article>
+
+        <article class="card project-card">
+          <div class="project-card__shot project-card__shot--orange">screenshot of project</div>
+          <div class="project-card__body">
+            <div class="project-card__head">
+              <h3>Project name</h3>
+              <div class="icon-list project-card__links">
+                <a href="https://github.com/" aria-label="GitHub repository"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="" width="22" height="22"></a>
+                <a href="#" aria-label="Live preview"><img src="assets/icons/open-in-new.svg" alt="" width="22" height="22"></a>
+              </div>
+            </div>
+            <p>Short description of the project. Just a couple sentences will do.</p>
+          </div>
+        </article>
+
+        <article class="card project-card">
+          <div class="project-card__shot project-card__shot--blue">screenshot of project</div>
+          <div class="project-card__body">
+            <div class="project-card__head">
+              <h3>Project name</h3>
+              <div class="icon-list project-card__links">
+                <a href="https://github.com/" aria-label="GitHub repository"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="" width="22" height="22"></a>
+                <a href="#" aria-label="Live preview"><img src="assets/icons/open-in-new.svg" alt="" width="22" height="22"></a>
+              </div>
+            </div>
+            <p>Short description of the project. Just a couple sentences will do.</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- CONTACT: full-width teal band, content constrained inside a container -->
+    <footer class="contact">
+      <div class="container contact__grid">
+        <div class="contact__info">
+          <h2>Contact me</h2>
+          <p>Please get in touch if you think our work could be mutually beneficial!</p>
+          <address>
+            1234 Random Road<br>
+            Random Town, California 12345
+          </address>
+          <ul class="contact__lines">
+            <li>
+              <a href="tel:+15555555555">
+                <img src="assets/icons/phone.svg" alt="" width="22" height="22">
+                <span>555-555-5555</span>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:hello@example.com">
+                <img src="assets/icons/email.svg" alt="" width="22" height="22">
+                <span>hello@example.com</span>
+              </a>
+            </li>
+          </ul>
+          <ul class="icon-list contact__icons">
+            <li><a href="https://github.com/" aria-label="GitHub profile"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="" width="32" height="32"></a></li>
+            <li><a href="https://www.linkedin.com/" aria-label="LinkedIn profile"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-plain.svg" alt="" width="32" height="32"></a></li>
+            <li><a href="https://x.com/" aria-label="X profile"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/twitter/twitter-original.svg" alt="" width="32" height="32"></a></li>
+          </ul>
+        </div>
+        <img class="contact__photo" src="assets/portrait-contact.jpg" alt="Sokoslay working on a laptop">
+      </div>
+    </footer>
+
+  </main>
 </body>
 </html>
